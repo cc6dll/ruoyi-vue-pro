@@ -26,11 +26,11 @@ services:
     volumes:
       - redis:/data
 
-  server:
-    container_name: yudao-server
+  hosp-res-proj-app: # Service name changed
+    container_name: hosp-res-proj # Container name changed
     build:
-      context: ./yudao-server/
-    image: yudao-server
+      context: ./yudao-server/ # Build context remains the same
+    image: yudao/hosp-res-proj # Image name changed
     restart: unless-stopped
     ports:
       - "48080:48080"
@@ -75,7 +75,7 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - server
+      - hosp-res-proj-app # depends_on updated
 
 volumes:
   mysql:
