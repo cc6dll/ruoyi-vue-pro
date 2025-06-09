@@ -6,4 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ProjectFundingMapper extends BaseMapperX<ProjectFundingDO> {
+
+    default List<ProjectFundingDO> selectListByProjectId(Long projectId) {
+        return selectList(ProjectFundingDO::getProjectId, projectId);
+    }
 }

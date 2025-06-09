@@ -6,4 +6,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ResearchAchievementMapper extends BaseMapperX<ResearchAchievementDO> {
+
+    default List<ResearchAchievementDO> selectListByProjectId(Long projectId) {
+        return selectList(ResearchAchievementDO::getProjectId, projectId);
+    }
 }
