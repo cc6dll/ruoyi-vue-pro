@@ -3,7 +3,7 @@ spring:
     name: yudao-server
 
   profiles:
-    active: local
+    active: hospital
 
   main:
     allow-circular-references: true # 允许循环依赖，因为项目是三层架构，无法避免这个情况。
@@ -76,7 +76,7 @@ mybatis-plus:
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
     banner: false # 关闭控制台的 Banner 打印
-  type-aliases-package: ${yudao.info.base-package}.module.*.dal.dataobject
+  type-aliases-package: ${yudao.info.base-package}.module.*.dal.dataobject, ${yudao.info.base-package}.module.hospital.dal.dataobject
   encryptor:
     password: XDV71a+xqStEA3WH # 加解密的秘钥，可使用 https://www.imaegoo.com/2020/aes-key-generator/ 网站生成
 
